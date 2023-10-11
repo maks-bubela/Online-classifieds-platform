@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Online_classifieds_platform</RootNamespace>
+    <RootNamespace>OnlineClassifiedsPlatform</RootNamespace>
   </PropertyGroup>
 
 </Project>

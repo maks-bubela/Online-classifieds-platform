@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Online_classifieds_platform
+namespace OnlineClassifiedsPlatform
 {
     public class Startup
     {
