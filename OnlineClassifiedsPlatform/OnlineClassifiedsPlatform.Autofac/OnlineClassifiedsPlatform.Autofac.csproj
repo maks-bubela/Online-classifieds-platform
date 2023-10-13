@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineClassifiedsPlatform.Configuration\OnlineClassifiedsPlatform.Configuration.csproj" />
+    <ProjectReference Include="..\OnlineClassifiedsPlatform.DAL\OnlineClassifiedsPlatform.DAL.csproj" />
+  </ItemGroup>
+
+</Project>
