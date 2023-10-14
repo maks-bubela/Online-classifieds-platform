@@ -5,6 +5,7 @@ using OnlineClassifiedsPlatform.BLL.Enums;
 using OnlineClassifiedsPlatform.BLL.Exceptions;
 using OnlineClassifiedsPlatform.BLL.Interfaces;
 using OnlineClassifiedsPlatform.DAL;
+using OnlineClassifiedsPlatform.DAL.Context;
 using OnlineClassifiedsPlatform.DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,26 @@ namespace OnlineClassifiedsPlatform.BLL.Services
             await _ctx.SaveChangesAsync();
             if (!await _userService.UserExistsAsync(user.Id)) throw new FailedAddToDatabaseException();
             return user.Id;
+        }
+        #endregion
+
+        #region Read methods
+        public async Task<bool> VerifyCredentialsAsync(string username, string password)
+        {
+            if (username == null) throw new ArgumentNullException(nameof(username));
+            if (password == null) throw new ArgumentNullException(nameof(password));
+
+            var user = await _ctx.Set<User>().Where(x => x.Username == username && !x.IsDelete)
+                    .SingleOrDefaultAsync();
+            if (user != null)
+            {
+                string pass = _passProcess.GetHashCode(password, user.Salt);
+                if (user.Password == pass)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         #endregion
     }

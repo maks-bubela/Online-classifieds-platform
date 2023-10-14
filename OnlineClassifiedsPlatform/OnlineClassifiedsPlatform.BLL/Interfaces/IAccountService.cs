@@ -9,5 +9,6 @@ namespace OnlineClassifiedsPlatform.BLL.Interfaces
     public interface IAccountService
     {
         Task<long> RegisterUserAsync(UserDTO userDTO);
+        Task<bool> VerifyCredentialsAsync(string username, string password);
     }
 }
