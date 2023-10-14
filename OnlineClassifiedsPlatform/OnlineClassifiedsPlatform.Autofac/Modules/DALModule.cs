@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using OnlineClassifiedsPlatform.Configuration;
-using OnlineClassifiedsPlatform.DAL;
+using OnlineClassifiedsPlatform.DAL.Context;
 using OnlineClassifiedsPlatform.DAL.Interfaces;
 using OnlineClassifiedsPlatform.DAL.Repository;
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OnlineClassifiedsPlatform.DAL.Context;
 using OnlineClassifiedsPlatform.DAL.Interfaces;
 using System;
 using System.Collections.Generic;

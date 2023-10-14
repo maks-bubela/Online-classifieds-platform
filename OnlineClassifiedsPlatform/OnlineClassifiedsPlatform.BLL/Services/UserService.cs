@@ -4,6 +4,7 @@ using OnlineClassifiedsPlatform.BLL.DTO;
 using OnlineClassifiedsPlatform.BLL.Exceptions;
 using OnlineClassifiedsPlatform.BLL.Interfaces;
 using OnlineClassifiedsPlatform.DAL;
+using OnlineClassifiedsPlatform.DAL.Context;
 using OnlineClassifiedsPlatform.DAL.Entities;
 using System;
 using System.Collections.Generic;

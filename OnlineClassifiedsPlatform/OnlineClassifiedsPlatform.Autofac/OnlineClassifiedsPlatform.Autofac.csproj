@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OnlineClassifiedsPlatform.BLL\OnlineClassifiedsPlatform.BLL.csproj" />
     <ProjectReference Include="..\OnlineClassifiedsPlatform.Configuration\OnlineClassifiedsPlatform.Configuration.csproj" />
     <ProjectReference Include="..\OnlineClassifiedsPlatform.DAL\OnlineClassifiedsPlatform.DAL.csproj" />
   </ItemGroup>

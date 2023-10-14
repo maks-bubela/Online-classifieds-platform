@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OnlineClassifiedsPlatform.DAL;
+using OnlineClassifiedsPlatform.DAL.Context;
 using OnlineClassifiedsPlatform.ExtensionMethods;
 using OnlineClassifiedsPlatform.Filters;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
@@ -28,9 +28,8 @@ namespace OnlineClassifiedsPlatform.AppStart
             services.AddControllersWithViews();
             services.AddSwagger();
             services.AddControllersWithViews();
-
+            services.AddJwtToken(Configuration);
             services.AddOptions();
-            //services.AddSwaggerGen();
             services.AddMvc(options => options.Filters.Add(new ExceptionFilter()));
         }
 
