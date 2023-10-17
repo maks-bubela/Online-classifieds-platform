@@ -1,4 +1,5 @@
 ﻿using OnlineClassifiedsPlatform.DAL.Interfaces;
+using System.Collections.Generic;
 
 namespace OnlineClassifiedsPlatform.DAL.Entities
 {
@@ -19,6 +20,8 @@ namespace OnlineClassifiedsPlatform.DAL.Entities
         public bool IsDelete { get; set; }
 
         public string Salt { get; set; }
+        public virtual ICollection<Goods> Goods { get; private set; }
+            = new HashSet<Goods>();
 
     }
 }
