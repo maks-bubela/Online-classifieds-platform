@@ -17,6 +17,15 @@ namespace OnlineClassifiedsPlatform.DAL.Context
         public DbSet<User> Users { get; set; }
         public DbSet<Goods> Goods { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<AzureBlob> AzureBlobs { get; set; }
+        public DbSet<AzureBlobFile> AzureBlobFiles { get; set; }
+        public DbSet<AzureBlobType> AzureBlobTypes { get; set; }
+        public DbSet<AzureStorageAccount> AzureStorageAccounts { get; set; }
+        public DbSet<BearerTokenSetting> BearerTokenSettings { get; set; }
+        public DbSet<EnvironmentType> EnvironmentTypes { get; set; }
+        public DbSet<GoodsCategory> GoodsCategorys { get; set; }
+        public DbSet<GoodsPhoto> GoodsPhoto { get; set; }
+        public DbSet<ImageMetadata> ImageMetadatas { get; set; }
 
 
         private static DbContextOptions GetOptions(string connectionString)
