@@ -21,6 +21,14 @@ namespace OnlineClassifiedsPlatform.DAL.Seeder
                     new BearerTokenSetting { Id = 4, EnvironmentTypeId = 4, LifeTime = 7 }
                 );
 
+            modelBuilder.Entity<GoodsCategory>().HasData(
+                    new GoodsCategory { Id = 1, CategoryName = "Clothes"},
+                    new GoodsCategory { Id = 2, CategoryName = "Estate" },
+                    new GoodsCategory { Id = 3, CategoryName = "Transport"},
+                    new GoodsCategory { Id = 4, CategoryName = "Furniture"},
+                    new GoodsCategory { Id = 4, CategoryName = "Electronics" }
+                );
+
             modelBuilder.Entity<Role>().HasData(
                     new Role() { Id = 1, Name = "admin" },
                     new Role() { Id = 2, Name = "staff" },
