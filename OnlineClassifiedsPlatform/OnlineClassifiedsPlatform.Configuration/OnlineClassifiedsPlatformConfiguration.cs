@@ -7,19 +7,26 @@ namespace OnlineClassifiedsPlatform.Configuration
     public class OnlineClassifiedsPlatformConfiguration
     {
         public const string SqlConnectionStringSectionName = "ConnectionStrings:OnlineClassifiedsPlatformDB";
+        public const string AzureStorageConnectionStringSectionName = "ConnectionStrings:AzureStorage";
 
 
         public string SqlConnectionString { get; private set; }
+        public string AzureStorageConnectionString { get; private set; }
 
 
-        public OnlineClassifiedsPlatformConfiguration(string sqlConnectionString)
+        public OnlineClassifiedsPlatformConfiguration(string sqlConnectionString, string azureStorageConnectionString)
         {
             if (string.IsNullOrWhiteSpace(nameof(sqlConnectionString)))
             {
                 throw new ArgumentException(nameof(sqlConnectionString));
             }
+            if (string.IsNullOrWhiteSpace(nameof(azureStorageConnectionString)))
+            {
+                throw new ArgumentException(nameof(azureStorageConnectionString));
+            }
 
             SqlConnectionString = sqlConnectionString;
+            AzureStorageConnectionString = azureStorageConnectionString;
         }
 
         public static OnlineClassifiedsPlatformConfiguration CreateFromConfigurations()
@@ -31,7 +38,8 @@ namespace OnlineClassifiedsPlatform.Configuration
             IConfigurationRoot root = configurationBuilder.Build();
 
             return new OnlineClassifiedsPlatformConfiguration(
-                sqlConnectionString: root.GetSection(SqlConnectionStringSectionName).Value);
+                sqlConnectionString: root.GetSection(SqlConnectionStringSectionName).Value,
+                azureStorageConnectionString: root.GetSection(AzureStorageConnectionStringSectionName).Value);
         }
     }
 }
