@@ -21,6 +21,9 @@ namespace OnlineClassifiedsPlatform.AppStart
             {
                 cfg.AddProfile(new UserProfileBLL());
                 cfg.AddProfile(new UserProfile());
+                cfg.AddProfile(new GoodsProfile());
+                cfg.AddProfile(new GoodsProfileBLL());
+                cfg.AddProfile(new AzureStorageProfileBLL());
             }).CreateMapper()).As<IMapper>().InstancePerLifetimeScope();
             return containerBuilder;
         }
