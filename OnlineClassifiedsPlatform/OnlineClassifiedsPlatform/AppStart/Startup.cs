@@ -49,8 +49,14 @@ namespace OnlineClassifiedsPlatform.AppStart
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
 
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseCustomSwagger();
             app.UseEndpoints(endpoints =>
             {
