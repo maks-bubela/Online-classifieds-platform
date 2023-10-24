@@ -15,6 +15,10 @@ namespace OnlineClassifiedsPlatform.Autofac.Modules
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<TokenService>().As<ITokenService>();
             builder.RegisterType<PasswordProcessing>().As<IPasswordProcessing>();
+            builder.RegisterType<AzureStorageService>().As<IAzureStorageService>();
+            builder.RegisterType<GoodsService>().As<IGoodsService>();
+            builder.RegisterType<FileUploadService>().As<IFileUploadService>();
+
             base.Load(builder);
         }
     }
