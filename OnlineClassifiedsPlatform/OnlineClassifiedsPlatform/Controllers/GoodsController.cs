@@ -48,13 +48,14 @@ namespace OnlineClassifiedsPlatform.Controllers
         /// <response code="200"> Goods is created </response>
         /// <response code="409"> Goods creation is failed </response>
         /// <response code="400">Model not valid</response>    
+        /// <response code="203"> Not authorize</response>  
         [Authorize ,HttpPost]
         [Route("add")]
         public async Task<IActionResult> CreateGoodsAsync([FromBody] GoodsCreateModel goods)
         {
             var userId = User.Identity.GetUserId<long>();
             if (!await _userService.UserExistsAsync(userId))
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(StatusCodes.Status203NonAuthoritative);
 
             if (ModelState.IsValid)
             {
@@ -112,8 +113,10 @@ namespace OnlineClassifiedsPlatform.Controllers
             { 
                 var goodsDTO =  _mapper.Map<GoodsDTO>(goodsUpdate);
                 if (goodsDTO == null) return StatusCode(500);
-                var updateStatus = await _goodsService.UpdateGoodsByIdAsync(goodsUpdateId, goodsDTO);
+                var userId = User.Identity.GetUserId<long>();
+                goodsDTO.UserId = userId;
 
+                var updateStatus = await _goodsService.UpdateGoodsByIdAsync(goodsUpdateId, goodsDTO);
                 if (updateStatus) return Ok(new { message = GoodsSuccesUpdate });
                 else return Conflict(new { errorText = GoodsNotUpdate });
             }
@@ -133,8 +136,9 @@ namespace OnlineClassifiedsPlatform.Controllers
         public async Task<IActionResult> DeleteGoodsAsync(long goodsDeleteId)
         {
             if (goodsDeleteId == ID_NOT_FOUND) return BadRequest();
+            var userId = User.Identity.GetUserId<long>();
 
-            var deleteStatus = await _goodsService.DeleteGoodsByIdAsync(goodsDeleteId);
+            var deleteStatus = await _goodsService.DeleteGoodsByIdAsync(goodsDeleteId, userId);
             if (deleteStatus) return Ok(new { message = GoodsSuccesDelete });
             else return Conflict(new { errorText = GoodsNotDelete });
         }

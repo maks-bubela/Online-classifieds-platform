@@ -12,6 +12,6 @@ namespace OnlineClassifiedsPlatform.BLL.Interfaces
         Task<long> AddGoodsPhotoAsync(long goodsId, Uri uri);
         Task<GoodsDTO> GetGoodsAsync(long goodsId);
         Task<bool> UpdateGoodsByIdAsync(long goodsId, GoodsDTO goodsDTO);
-        Task<bool> DeleteGoodsByIdAsync(long goodsId);
+        Task<bool> DeleteGoodsByIdAsync(long goodsId, long userId);
     }
 }

@@ -87,7 +87,7 @@ namespace OnlineClassifiedsPlatform.BLL.Services
             var goods = await _ctx.Set<Goods>()
                 .Include(x => x.GoodsPhotos)
                 .SingleOrDefaultAsync(x => x.Id == goodsId);
-            if (goods == null) throw new ArgumentNullException(nameof(goods));
+            if (goods == null || goods.UserId != goodsDTO.UserId) return false;
 
             if (goodsDTO.GoodsName != null)
             {
@@ -113,14 +113,14 @@ namespace OnlineClassifiedsPlatform.BLL.Services
             return true;
         }
 
-        public async Task<bool> DeleteGoodsByIdAsync(long goodsId)
+        public async Task<bool> DeleteGoodsByIdAsync(long goodsId, long userId)
         {
             if (goodsId == ID_NOT_FOUND) throw new ArgumentNullException(nameof(goodsId));
 
             var goods = await _ctx.Set<Goods>()
                 .Include(x => x.GoodsPhotos)
                 .SingleOrDefaultAsync(x => x.Id == goodsId);
-            if (goods == null) return false;
+            if (goods == null || goods.UserId != userId) return false;
 
             _ctx.Set<Goods>().Remove(goods);
             await _ctx.SaveChangesAsync();
