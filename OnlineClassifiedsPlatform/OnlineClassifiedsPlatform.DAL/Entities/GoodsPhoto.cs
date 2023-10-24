@@ -6,7 +6,7 @@ namespace OnlineClassifiedsPlatform.DAL.Entities
     {
         public long Id { get; set; }
         public virtual AzureBlobFile GoodsImage { get; set; }
-        public long? GoodsImageId { get; set; }
+        public long GoodsImageId { get; set; }
         public virtual Goods Goods { get; set; }
         public long GoodsId { get; set; }
     }

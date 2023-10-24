@@ -12,7 +12,7 @@ namespace OnlineClassifiedsPlatform.DAL.Entities
         public string GoodsName { set; get; }
         public string Description { get; set; }
         public long Price { get; set; }
-        public string Condition { get; set; }
+        public bool IsAvailable { get; set; }
         public virtual ICollection<GoodsPhoto> GoodsPhotos { get; private set; }
             = new HashSet<GoodsPhoto>();
         public virtual User User { get; set; }
