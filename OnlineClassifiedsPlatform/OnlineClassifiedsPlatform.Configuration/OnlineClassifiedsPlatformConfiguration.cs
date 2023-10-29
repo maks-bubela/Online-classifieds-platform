@@ -8,13 +8,15 @@ namespace OnlineClassifiedsPlatform.Configuration
     {
         public const string SqlConnectionStringSectionName = "ConnectionStrings:OnlineClassifiedsPlatformDB";
         public const string AzureStorageConnectionStringSectionName = "ConnectionStrings:AzureStorage";
-
+        public const string AzureServiceBusConnectionStringSectionName = "ConnectionStrings:AzureServiceBus";
 
         public string SqlConnectionString { get; private set; }
         public string AzureStorageConnectionString { get; private set; }
+        public string AzureServiceBusConnectionString { get; private set; }
 
 
-        public OnlineClassifiedsPlatformConfiguration(string sqlConnectionString, string azureStorageConnectionString)
+        public OnlineClassifiedsPlatformConfiguration(string sqlConnectionString, 
+            string azureStorageConnectionString, string azureServiceBusConnectionString)
         {
             if (string.IsNullOrWhiteSpace(nameof(sqlConnectionString)))
             {
@@ -25,8 +27,14 @@ namespace OnlineClassifiedsPlatform.Configuration
                 throw new ArgumentException(nameof(azureStorageConnectionString));
             }
 
+            if (string.IsNullOrWhiteSpace(nameof(azureServiceBusConnectionString)))
+            {
+                throw new ArgumentException(nameof(azureServiceBusConnectionString));
+            }
+
             SqlConnectionString = sqlConnectionString;
             AzureStorageConnectionString = azureStorageConnectionString;
+            AzureServiceBusConnectionString = azureServiceBusConnectionString;
         }
 
         public static OnlineClassifiedsPlatformConfiguration CreateFromConfigurations()
@@ -39,7 +47,8 @@ namespace OnlineClassifiedsPlatform.Configuration
 
             return new OnlineClassifiedsPlatformConfiguration(
                 sqlConnectionString: root.GetSection(SqlConnectionStringSectionName).Value,
-                azureStorageConnectionString: root.GetSection(AzureStorageConnectionStringSectionName).Value);
+                azureStorageConnectionString: root.GetSection(AzureStorageConnectionStringSectionName).Value,
+                azureServiceBusConnectionString : root.GetSection(AzureServiceBusConnectionStringSectionName).Value);
         }
     }
 }

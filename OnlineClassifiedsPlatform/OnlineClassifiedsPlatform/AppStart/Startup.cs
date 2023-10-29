@@ -1,12 +1,14 @@
 using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineClassifiedsPlatform.DAL.Context;
 using OnlineClassifiedsPlatform.ExtensionMethods;
 using OnlineClassifiedsPlatform.Filters;
+using OnlineClassifiedsPlatform.SignalR.Hubs;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace OnlineClassifiedsPlatform.AppStart
@@ -57,6 +59,7 @@ namespace OnlineClassifiedsPlatform.AppStart
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            AzureServiceBusConfig.Configure(app.ApplicationServices);
             app.UseCustomSwagger();
             app.UseEndpoints(endpoints =>
             {
@@ -66,6 +69,13 @@ namespace OnlineClassifiedsPlatform.AppStart
                     name: "swagger",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                 );
+
+                endpoints.MapHub<GoodsNotificationHub>("/goods", options =>
+                {
+                    options.Transports =
+                        HttpTransportType.WebSockets |
+                        HttpTransportType.LongPolling;
+                });
             });
         }
     }

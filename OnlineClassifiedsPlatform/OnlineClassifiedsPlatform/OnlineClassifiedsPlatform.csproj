@@ -28,6 +28,7 @@
     <ProjectReference Include="..\OnlineClassifiedsPlatform.Autofac\OnlineClassifiedsPlatform.Autofac.csproj" />
     <ProjectReference Include="..\OnlineClassifiedsPlatform.BLL\OnlineClassifiedsPlatform.BLL.csproj" />
     <ProjectReference Include="..\OnlineClassifiedsPlatform.DAL\OnlineClassifiedsPlatform.DAL.csproj" />
+    <ProjectReference Include="..\OnlineClassifiedsPlatform.SignalR\OnlineClassifiedsPlatform.SignalR.csproj" />
   </ItemGroup>
 
 </Project>

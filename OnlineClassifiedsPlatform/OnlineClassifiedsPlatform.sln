@@ -16,7 +16,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineClassifiedsPlatform.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineClassifiedsPlatform.BLL", "OnlineClassifiedsPlatform.BLL\OnlineClassifiedsPlatform.BLL.csproj", "{567FA549-B6F3-4F67-8C76-80D4A72623BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineClassifiedsPlatform.AzureStorage", "OnlineClassifiedsPlatform.AzureStorage\OnlineClassifiedsPlatform.AzureStorage.csproj", "{C4D35388-F6C0-42DE-9C5E-9858EC222E16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineClassifiedsPlatform.AzureStorage", "OnlineClassifiedsPlatform.AzureStorage\OnlineClassifiedsPlatform.AzureStorage.csproj", "{C4D35388-F6C0-42DE-9C5E-9858EC222E16}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineClassifiedsPlatform.AzureServiceBus", "OnlineClassifiedsPlatform.AzureServiceBus\OnlineClassifiedsPlatform.AzureServiceBus.csproj", "{C96A9B3D-E2E7-4590-AEAC-D880FA0C3C44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineClassifiedsPlatform.SignalR", "OnlineClassifiedsPlatform.SignalR\OnlineClassifiedsPlatform.SignalR.csproj", "{4DA05B42-9DEB-4CFB-8BC8-16BCCC75E2B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BF5AEE8C-B78D-4FB9-8E2A-E6663604E662}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineClassifiedsPlatformSignalRTest", "OnlineClassifiedsPlatformSignalRTest\OnlineClassifiedsPlatformSignalRTest.csproj", "{A21A4113-CD1F-4309-944F-7701C0B25FB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,9 +56,24 @@ Global
 		{C4D35388-F6C0-42DE-9C5E-9858EC222E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4D35388-F6C0-42DE-9C5E-9858EC222E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4D35388-F6C0-42DE-9C5E-9858EC222E16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96A9B3D-E2E7-4590-AEAC-D880FA0C3C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96A9B3D-E2E7-4590-AEAC-D880FA0C3C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96A9B3D-E2E7-4590-AEAC-D880FA0C3C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96A9B3D-E2E7-4590-AEAC-D880FA0C3C44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DA05B42-9DEB-4CFB-8BC8-16BCCC75E2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DA05B42-9DEB-4CFB-8BC8-16BCCC75E2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DA05B42-9DEB-4CFB-8BC8-16BCCC75E2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DA05B42-9DEB-4CFB-8BC8-16BCCC75E2B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A21A4113-CD1F-4309-944F-7701C0B25FB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21A4113-CD1F-4309-944F-7701C0B25FB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21A4113-CD1F-4309-944F-7701C0B25FB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21A4113-CD1F-4309-944F-7701C0B25FB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A21A4113-CD1F-4309-944F-7701C0B25FB4} = {BF5AEE8C-B78D-4FB9-8E2A-E6663604E662}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDBACCB4-5DFB-4754-9B91-7BDDDCEFE63D}
