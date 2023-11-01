@@ -126,5 +126,16 @@ namespace OnlineClassifiedsPlatform.BLL.Services
             await _ctx.SaveChangesAsync();
             return true;
         }
+
+        public async Task<Goods> BuyGoodsByIdAsync(long goodsId, long userId)
+        {
+            if (goodsId == ID_NOT_FOUND) throw new ArgumentNullException(nameof(goodsId));
+
+            var goods = await _ctx.Set<Goods>().SingleOrDefaultAsync(x => x.Id == goodsId);
+            if (goods == null || goods.UserId == userId) return null;
+            goods.IsAvailable = false;
+            await _ctx.SaveChangesAsync();
+            return goods;
+        }
     }
 }
