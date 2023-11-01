@@ -16,6 +16,7 @@ namespace OnlineClassifiedsPlatform.AppStart
             containerBuilder.RegisterModule<DALModule>();
             containerBuilder.RegisterModule<BlobModule>();
             containerBuilder.RegisterModule<ServiceModule>();
+            containerBuilder.RegisterModule<AzureModule>();
             containerBuilder.RegisterType<AuthOptions>().As<IAuthOptions>();
             containerBuilder.Register(ctx => new MapperConfiguration(cfg =>
             {

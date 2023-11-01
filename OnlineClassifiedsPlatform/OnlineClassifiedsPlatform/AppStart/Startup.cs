@@ -27,6 +27,11 @@ namespace OnlineClassifiedsPlatform.AppStart
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR()
+                .AddHubOptions<GoodsNotificationHub>(options =>
+                {
+                    options.EnableDetailedErrors = true;
+                });
             services.AddControllersWithViews();
             services.AddSwagger();
             services.AddControllersWithViews();

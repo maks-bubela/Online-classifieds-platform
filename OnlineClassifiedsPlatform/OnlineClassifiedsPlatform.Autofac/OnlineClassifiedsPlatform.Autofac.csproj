@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OnlineClassifiedsPlatform.AzureServiceBus\OnlineClassifiedsPlatform.AzureServiceBus.csproj" />
     <ProjectReference Include="..\OnlineClassifiedsPlatform.AzureStorage\OnlineClassifiedsPlatform.AzureStorage.csproj" />
     <ProjectReference Include="..\OnlineClassifiedsPlatform.BLL\OnlineClassifiedsPlatform.BLL.csproj" />
     <ProjectReference Include="..\OnlineClassifiedsPlatform.Configuration\OnlineClassifiedsPlatform.Configuration.csproj" />
