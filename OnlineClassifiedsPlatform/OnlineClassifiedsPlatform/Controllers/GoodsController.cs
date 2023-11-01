@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OnlineClassifiedsPlatform.AzureServiceBus.Interfaces;
 using OnlineClassifiedsPlatform.BLL.DTO;
 using OnlineClassifiedsPlatform.BLL.Interfaces;
 using OnlineClassifiedsPlatform.BLL.Services;
@@ -25,19 +26,24 @@ namespace OnlineClassifiedsPlatform.Controllers
         private const string GoodsNotUpdate = "Goods not updated";
         private const string GoodsSuccesDelete = "Goods deleted successfully";
         private const string GoodsNotDelete = "Goods not deleted";
+        private const string GoodsSuccesPayment = "Goods was sold";
+        private const string GoodsBadPayment = "Goods bad payment";
+        private const string GoodsPaymentQueueName = "goodspayment";
         #endregion
 
         #region Services
         private readonly IMapper _mapper;
         private readonly IGoodsService _goodsService;
         private readonly IUserService _userService;
+        private readonly IServiceBusQueueProducer _queueProducer;
         #endregion
 
-        public GoodsController(IGoodsService goodsService ,IUserService userService, IMapper mapper)
+        public GoodsController(IGoodsService goodsService ,IUserService userService, IMapper mapper, IServiceBusQueueProducer queueProducer)
         {
             _goodsService = goodsService ?? throw new ArgumentNullException(nameof(IGoodsService));
             _userService = userService ?? throw new ArgumentNullException(nameof(IUserService));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(IMapper));
+            _queueProducer = queueProducer ?? throw new ArgumentNullException(nameof(IServiceBusQueueProducer));
         }
 
         /// <summary>
@@ -141,6 +147,30 @@ namespace OnlineClassifiedsPlatform.Controllers
             var deleteStatus = await _goodsService.DeleteGoodsByIdAsync(goodsDeleteId, userId);
             if (deleteStatus) return Ok(new { message = GoodsSuccesDelete });
             else return Conflict(new { errorText = GoodsNotDelete });
+        }
+
+        /// <summary>
+        /// Buy goods.
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200"> Goods was sold </response>>
+        /// <response code="400"> goodsDeleteId not valid</response>    
+        /// <response code="409"> Goods payment is failed </response>
+        /// <response code="500"> Something is wrong on server </response>>
+        [Authorize, HttpPost]
+        [Route("buy")]
+        public async Task<IActionResult> BuyGoodsAsync(long goodsBuyId)
+        {
+            if (goodsBuyId == ID_NOT_FOUND) return BadRequest();
+            var userId = User.Identity.GetUserId<long>();
+
+            var goods = await _goodsService.BuyGoodsByIdAsync(goodsBuyId, userId);
+            if (goods != null)
+            {
+                await _queueProducer.SendMessageAsync(goods, GoodsPaymentQueueName);
+                return Ok(new { message = GoodsSuccesPayment });
+            }
+            else return Conflict(new { errorText = GoodsBadPayment });
         }
 
     }
