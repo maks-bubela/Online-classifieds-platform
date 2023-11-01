@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.SignalR.Hubs;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Azure.ServiceBus;
-using MintyIssueTrackerCore.Configuration;
+using OnlineClassifiedsPlatform.Configuration;
 using Newtonsoft.Json;
 using OnlineClassifiedsPlatform.AzureServiceBus.Models;
 using OnlineClassifiedsPlatform.AzureServiceBus.ServiceBusTopic;

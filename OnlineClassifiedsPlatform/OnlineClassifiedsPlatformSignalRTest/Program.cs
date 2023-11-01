@@ -2,7 +2,7 @@
 using Microsoft.Azure.WebJobs.Extensions.SignalRService;
 using System;
 
-namespace OnlineClassifiedsPlatformSignalRTest
+namespace OnlineClassifiedsPlatform.SignalRTest
 {
     class Program
     {

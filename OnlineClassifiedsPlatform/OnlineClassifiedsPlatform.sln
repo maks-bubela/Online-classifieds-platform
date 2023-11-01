@@ -20,11 +20,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineClassifiedsPlatform.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineClassifiedsPlatform.AzureServiceBus", "OnlineClassifiedsPlatform.AzureServiceBus\OnlineClassifiedsPlatform.AzureServiceBus.csproj", "{C96A9B3D-E2E7-4590-AEAC-D880FA0C3C44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineClassifiedsPlatform.SignalR", "OnlineClassifiedsPlatform.SignalR\OnlineClassifiedsPlatform.SignalR.csproj", "{4DA05B42-9DEB-4CFB-8BC8-16BCCC75E2B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineClassifiedsPlatform.SignalR", "OnlineClassifiedsPlatform.SignalR\OnlineClassifiedsPlatform.SignalR.csproj", "{4DA05B42-9DEB-4CFB-8BC8-16BCCC75E2B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BF5AEE8C-B78D-4FB9-8E2A-E6663604E662}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineClassifiedsPlatformSignalRTest", "OnlineClassifiedsPlatformSignalRTest\OnlineClassifiedsPlatformSignalRTest.csproj", "{A21A4113-CD1F-4309-944F-7701C0B25FB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineClassifiedsPlatform.SignalRTest", "OnlineClassifiedsPlatformSignalRTest\OnlineClassifiedsPlatform.SignalRTest.csproj", "{A21A4113-CD1F-4309-944F-7701C0B25FB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineClassifiedsPlatform.Tests", "OnlineClassifiedsPlatform.Tests\OnlineClassifiedsPlatform.Tests.csproj", "{F0BFE41B-6012-41B1-B4F3-705C0E87B6D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,12 +70,17 @@ Global
 		{A21A4113-CD1F-4309-944F-7701C0B25FB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A21A4113-CD1F-4309-944F-7701C0B25FB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A21A4113-CD1F-4309-944F-7701C0B25FB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0BFE41B-6012-41B1-B4F3-705C0E87B6D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0BFE41B-6012-41B1-B4F3-705C0E87B6D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0BFE41B-6012-41B1-B4F3-705C0E87B6D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0BFE41B-6012-41B1-B4F3-705C0E87B6D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A21A4113-CD1F-4309-944F-7701C0B25FB4} = {BF5AEE8C-B78D-4FB9-8E2A-E6663604E662}
+		{F0BFE41B-6012-41B1-B4F3-705C0E87B6D3} = {BF5AEE8C-B78D-4FB9-8E2A-E6663604E662}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDBACCB4-5DFB-4754-9B91-7BDDDCEFE63D}
